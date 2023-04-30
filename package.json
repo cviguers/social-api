@@ -1,0 +1,29 @@
+{
+  "name": "social-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node utils/seed.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cviguers/social-api.git"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^7.0.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cviguers/social-api/issues"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  },
+  "homepage": "https://github.com/cviguers/social-api#readme"
+}
