@@ -15,7 +15,6 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      // validate: [validateEmail, "Please fill a valid email address"],
       match: [
         /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
         "Please fill a valid email address"
@@ -24,7 +23,7 @@ const userSchema = new Schema(
     // define thoughts field as an array
     thoughts: [
         {
-            // create _id values
+            // create _id values for each thought
             type: Schema.Types.ObjectId,
             // reference the Thought model
             ref: "Thought",
@@ -33,7 +32,7 @@ const userSchema = new Schema(
     // define friends field as array
     friends: [
         {
-            // create _id values
+            // create _id values for each friend
             type: Schema.Types.ObjectId,
             // reference the User model
             ref: "User",
@@ -53,12 +52,6 @@ const userSchema = new Schema(
 userSchema.virtual('friendCount').get(function () {
     return this.friends.length;
 });
-
-// function to validate email with regex
-// var validateEmail = function (email) {
-//   var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-//   return re.test(email);
-// };
 
 // initialize User model
 const User = model('user', userSchema);
