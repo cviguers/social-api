@@ -15,10 +15,10 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      validate: [validateEmail, "Please fill a valid email address"],
+      // validate: [validateEmail, "Please fill a valid email address"],
       match: [
         /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-        "Please fill a valid email address",
+        "Please fill a valid email address"
       ],
     },
     // define thoughts field as an array
@@ -55,10 +55,10 @@ userSchema.virtual('friendCount').get(function () {
 });
 
 // function to validate email with regex
-var validateEmail = function (email) {
-  var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  return re.test(email);
-};
+// var validateEmail = function (email) {
+//   var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+//   return re.test(email);
+// };
 
 // initialize User model
 const User = model('user', userSchema);
