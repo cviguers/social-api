@@ -29,4 +29,4 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 Access
 * Github Repo: https://github.com/cviguers/social-api
-* Walkthrough Video:
+* Walkthrough Video: https://drive.google.com/file/d/11IQs8ogsCR23rNllM9biJ8z45QTp4QEt/view
