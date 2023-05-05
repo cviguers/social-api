@@ -49,7 +49,6 @@ const names = [
   'Zubair',
   'Zubayr',
   'Zuriel',
-  'help',
   ``,
 ];
 
@@ -64,7 +63,7 @@ const thoughtText = [
   'hiking cascades in tetons to see the moose was 10/10',
   'i am excited to go to joshua tree next',
   'i hope i see a condor',
-  '',
+  ``,
 ];
 
 const reactionBody = [
@@ -73,11 +72,8 @@ const reactionBody = [
   'wanna move here',
   'jk need to work',
   ':,)',
-  '',
+  ``,
 ];
-
-// create empty array instance for users
-const users = [];
 
 // function to randomly pick from an array
 const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
@@ -105,7 +101,7 @@ const getThoughtReactions = (int) => {
   const results = [];
   for (let i = 0; i < int; i++) {
     results.push({
-      tagBody: getRandomArrItem(reactionBody),
+      reactionBody: getRandomArrItem(reactionBody),
       username: getRandomName(),
     });
   }

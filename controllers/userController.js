@@ -14,9 +14,7 @@ module.exports = {
   // get - read a single user
   async getSingleUser(req, res) {
     try {
-      const user = await User.findOne({ _id: req.params.userId }).select(
-        "-__v"
-      );
+      const user = await User.findOne({ _id: req.params.userId })
 
       if (!user) {
         return res.status(404).json({ message: "No user with that ID" });
@@ -65,18 +63,20 @@ module.exports = {
 
       if (!user) {
         return res.status(404).json({ message: "No user with that ID" });
+      } else {
+         return res.status(200).json({message: "user deleted"})
       }
     } catch (err) {
       res.status(500).json(err);
     }
   },
 
-  // post - add friend to user's friend list. add the entire body of the friendlist rather than the ID with the mongodb $addToSet operator
+  // post - add friend to user's friend list. push the id of the user from the params to the friends field to self reference the id as a placeholder for friends name
   async addFriend(req, res) {
     try {
       const user = await User.findOneAndUpdate(
         { _id: req.params.userId },
-        { $addToSet: { friends: req.body } },
+        { $push: { friends: req.params.userId } },
         { runValidators: true, new: true }
       );
 
@@ -100,7 +100,9 @@ module.exports = {
       );
 
       if (!user) {
-        return res.status(404).json({ message: 'No user with this id!' });
+        return res.status(404).json({ message: 'No friend with this id!' });
+      } else {
+        return res.status(200).json({message: "friend deleted"})
       }
 
       res.json(user);
